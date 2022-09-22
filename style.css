@@ -1,0 +1,153 @@
+/* Existen 3 tiepos de trabajos para css */
+/* 1. Estilo en linea: se trabaja dentro de la etiqueta en html. */
+/* 2. Elemento style: trabaja en el headar del html y invocando a las etiquetas q quiera darle estilo  */
+/* 3. archivo css  */
+
+/* SELECTORES de css */
+/* SELECTORES de tipo */
+h1{
+  color: blue; /*agregamos color*/
+  font-size: 50px; /*tamaño de letra*/
+  font-family: 'Courier New', Courier, monospace; /*tipo de letra, mas de 2 palabras va comilla, 1 solo tipo de letra va sin comilla - tamb podemos buscar tipos de letras de google fonts*/
+}
+/* cambiamos el tamaño de todas las imagenes */
+img{
+  width: 250px;
+  border-color: aqua;
+  border-width: 5px;
+  border-style: dashed;
+}
+/* bordes de imagenes redondeadas por medio de clases, ya q le damos a algunas imagens el redondeado */
+.bordes redondeados{
+  border-radius: 50px; /*se puede en px o % porcentje*/
+}
+/* color de fondo de un <div> divisiores de html*/
+div{
+  background-color: chartreuse;
+}
+
+
+/* cambiar tamaño imagen con clases. y colocar class="imagen" en la etiqueta de imagen de html 
+.imagen{
+  width: 250;
+}*/
+/* SELECTOR universal  selecc todos los elementos*/
+/*{
+  color: brown;
+} */
+
+/* SELECTOR de clases - seleccionamos todos los element q tienen el atributo .class especificados en las etiquetas html, podemos tener 
+varias selctores de clases*/
+/* .cripto{
+color: blue;
+} */
+
+/* SELECTOR id  colocar # y nomb del id. funciona parecido a las clases, se debe ir a la etiqueta de html y colocar id="nombre"*/
+#nombre-del-id{
+  font-size: 15px;
+  color: aliceblue;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+/* PADDING es la distancia entre el contenido de un elemento y su borde*/
+img{
+  /* padding: 5px; le damos las mismas dimansiones a todos los padding */
+  padding: 5px 10px 15px 20px; /*tamb trabaja como recorrido de las agujas del reloj dando tamaño a cada lado.*/
+  background-color: darkblue;
+  border-width: 8px;
+  border-color: black;
+  border-style: solid;
+
+}
+/* MARGIN, el margen tambien puede ser modificado igual q el padding*/
+img{
+  margin: 55px;
+  background-color: darkred;
+}
+/* SELECTORES DE ATRIBUTOS, selecciona un atributo para hacer lo q se desee */
+/* se debe colocar entre [] al atributo seleccionado */
+img[alt]{
+  border-radius: 50%;
+
+}
+[type="radio"]{
+  margin: 15px;
+}
+[type="checkbox"]{
+  margin: 20px;
+}
+a[href="https://www.santander.com/es/stories/guia-para-saber-que-son-las-criptomonedas"]{
+  color: blue;
+  font-weight: bold;
+}
+
+/* UNIDADES ABSOLUTAS Y RELATIVAS absolutas:siempre tienen el mismo tamaño - relativas:definen su valor en relacion a otras medidas*/
+  /*le damos las caracteristicas al conetenedor principal*/
+#contenedor-principal{
+  color: aliceblue;
+  padding: 5px;
+  background-color: yellow;
+  font-size: 15;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+/*las calss rectangulos tendras estas caract.*/
+.rectangulo {
+  padding: 5px;
+  margin: 5px;
+}
+/*las class px tendran estas caract*/
+.px { /*unidad absoluta*/
+  background-color: aqua;
+  width: 200px;
+}
+.vw {/*unid. relativa vw tendran estas caract*/
+  background-color: blue;
+  width: 20vw;
+}
+.em {/*unid relativa, puedo ajustar cualquiera de sus caracteristicas*/
+  background-color: green;
+  width: 15em;
+  font-size: 1.5em;/*1.5 su tamaño*/
+}
+/* PRIORIDADES */
+  /* en css se dan las prioridades en los element especificos como class antes q los genericos.  */
+  /*en css entre 2 class tiene prioridad la utima class a ejecutar*/
+  /*los id tienen prioridad antes q las class*/
+  /*los estilos en lineas tienen la maxima prioridad antes q las class o los id*/
+  /*el valor !important es un valor q prioriza ante todos los anteriores cuando lo colocamos en class, id*/
+
+/* VARIABLES */
+/*En primer lugar: las variables CSS pueden tener un alcance global o local.
+Las variables globales se pueden acceder/usar a través de todo el documento, mientras que las variables locales
+ se pueden usar solo dentro del selector donde se declara.*/
+/* Para crear una variable con alcance local, declárela dentro del selector que la va a usar.
+El siguiente ejemplo es igual al ejemplo anterior, pero aquí usamos la var()función.
+Primero, declaramos dos variables globales (--blue y --white). Luego, usamos la var()función para insertar el valor de las variables más adelante en la hoja de estilo:*/
+  --blue 
+  --white
+
+body { background-color: var(--blue); }
+
+h2 { border-bottom: 2px solid var(--blue); }
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+/*tambien debemos colocar respado a los colores que usemos*/
+.container {
+  color: var(--blue, blue);
+  background-color: var(--white, white);
+  padding: 15px;
+}
+
+/*COMPATIBILIDAD CON DISTINTOS NAVEGADORES*/
+  /*en caso de que nuestra imagen de css no sea compatible con otros navegadores debemos dar respaldo a las propiedades 
+  que forma ima imagen, ya sea color, etc.*/
+  .container {
+    /*el respaldo, al no reconocer el navegador a la variable, debemos color si color nuevamente un renglon arriba*/
+    color: blue; /*respaldo aquí*/
+    color: var(--blue, blue);
+    background-color: var(--white, white);
+    padding: 15px;
+  }
